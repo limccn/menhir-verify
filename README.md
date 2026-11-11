@@ -23,6 +23,14 @@ npm install @limccn/menhir-verify
 Requires Node.js >= 24. Source, issues, and release notes:
 [github.com/limccn/menhir-verify](https://github.com/limccn/menhir-verify).
 
+If the registry does not yet serve 0.1.0, build from source:
+
+```bash
+git clone https://github.com/limccn/menhir-verify.git
+cd menhir-verify
+npm install && npm run build
+```
+
 ## The trust invariant
 
 ```
