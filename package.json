@@ -1,0 +1,62 @@
+{
+  "name": "@limccn/menhir-verify",
+  "version": "0.1.0",
+  "private": false,
+  "description": "Verifier-only package: compare memory bytes against a menhir on-chain commitment, with chain-derived expected digests.",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/limccn/menhir-verify.git"
+  },
+  "homepage": "https://github.com/limccn/menhir-verify",
+  "bugs": {
+    "url": "https://github.com/limccn/menhir-verify/issues"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "docs",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=24"
+  },
+  "keywords": [
+    "memory",
+    "ethereum",
+    "verification",
+    "tamper-evident",
+    "longstone",
+    "menhir"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "check:browser": "tsc --noEmit --ignoreConfig --lib es2022,dom --strict --module esnext --moduleResolution bundler --skipLibCheck test/browser-entry.ts",
+    "prepublishOnly": "npm run build && npm test",
+    "publish:npm": "npm publish --access public",
+    "pack:check": "npm pack --dry-run"
+  },
+  "dependencies": {
+    "@limccn/menhir-core": "^0.1.1",
+    "viem": "2.57.7"
+  },
+  "devDependencies": {
+    "typescript": "7.0.2",
+    "vitest": "5.0.5"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
